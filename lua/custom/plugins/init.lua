@@ -5,4 +5,8 @@
 
 vim.keymap.set('i', 'jk', '<esc>')
 
+-- neo-tree keybindings
+
+vim.keymap.set('n', '<tab>', '<Cmd>Neotree toggle filesystem reveal left<CR>')
+
 return {}
