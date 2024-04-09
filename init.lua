@@ -594,12 +594,24 @@ require('lazy').setup({
         'ltex-ls',
         'lua-language-server',
         'markdown-oxide',
+        'python-lsp-server',
         'rust-analyzer',
         'svls',
         -- linter
         'pyre',
         -- formatter
+        'beautysh',
+        'clang-format',
+        'gersemi', -- cmake
+        'fourmolu',
+        'htmlbeautifier',
+        'google-java-format',
+        'latexindent',
         'stylua',
+        'mdformat',
+        'rustfmt',
+        'isort',
+        'black',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -636,16 +648,26 @@ require('lazy').setup({
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true }
+        local disable_filetypes = {} -- c = true, cpp = true }
         return {
           timeout_ms = 500,
           lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
         }
       end,
       formatters_by_ft = {
+        bash = { 'beautysh' },
+        c = { 'clang-format' },
+        cpp = { 'clang-format' },
+        cmake = { 'gersemi' },
+        haskell = { 'fourmolu' },
+        html = { 'htmlbeautifier' },
+        java = { 'google-java-format' },
+        latex = { 'latexindent' },
         lua = { 'stylua' },
+        md = { 'mdformat' },
+        rust = { 'rustfmt' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
