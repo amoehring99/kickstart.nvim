@@ -6,7 +6,18 @@ return {
     config = function()
       local lint = require 'lint'
       lint.linters_by_ft = {
+        bash = { 'shellcheck' },
+        c = { 'cpplint' },
+        cpp = { 'cpplint' },
+        cmake = { 'cmakelint' },
+        haskell = { 'hlint' },
+        html = { 'htmlhint' },
+        java = { 'checkstyle' },
+        latex = { 'vale' },
+        lua = { 'luacheck' },
         markdown = { 'markdownlint' },
+        rust = { 'snyk' },
+        python = { 'pylint' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,

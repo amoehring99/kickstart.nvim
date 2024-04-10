@@ -598,7 +598,17 @@ require('lazy').setup({
         'rust-analyzer',
         'svls',
         -- linter
-        'pyre',
+        'shellcheck',
+        'cpplint',
+        'cmakelint',
+        -- 'hlint', -- haskell (not included in mason)
+        'htmlhint',
+        'checkstyle', -- java
+        'vale', -- latex
+        'luacheck',
+        'markdownlint',
+        'snyk',
+        'pylint',
         -- formatter
         'beautysh',
         'clang-format',
@@ -664,7 +674,7 @@ require('lazy').setup({
         java = { 'google-java-format' },
         latex = { 'latexindent' },
         lua = { 'stylua' },
-        md = { 'mdformat' },
+        markdown = { 'mdformat' },
         rust = { 'rustfmt' },
         -- Conform can also run multiple formatters sequentially
         python = { 'isort', 'black' },
@@ -901,7 +911,7 @@ require('lazy').setup({
   --
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.lint',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
