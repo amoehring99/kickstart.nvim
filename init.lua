@@ -545,7 +545,7 @@ require('lazy').setup({
         cmake = {},
         hls = {},
         jdtls = {},
-        ltex = {},
+        texlab = {},
         svls = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -591,7 +591,7 @@ require('lazy').setup({
         'haskell-language-server',
         'html-lsp',
         'jdtls',
-        'ltex-ls',
+        'texlab',
         'lua-language-server',
         'markdown-oxide',
         'python-lsp-server',
@@ -878,6 +878,7 @@ require('lazy').setup({
       auto_install = true,
       highlight = {
         enable = true,
+        disable = { 'latex' }, -- use highlighting by vimtex
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
