@@ -16,7 +16,7 @@ return {
         latex = { 'vale' },
         lua = { 'luacheck' },
         markdown = { 'markdownlint' },
-        rust = { 'snyk' },
+        --rust = { 'snyk' },
         python = { 'pylint' },
       }
 

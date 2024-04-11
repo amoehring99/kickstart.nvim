@@ -541,7 +541,7 @@ require('lazy').setup({
         clangd = {},
         -- gopls = {},
         pyre = {},
-        rust_analyzer = {},
+        -- rust_analyzer = {}, already set by rust-tools plugin
         cmake = {},
         hls = {},
         jdtls = {},
@@ -595,7 +595,7 @@ require('lazy').setup({
         'lua-language-server',
         'markdown-oxide',
         'python-lsp-server',
-        'rust-analyzer',
+        -- 'rust-analyzer', installed by rust-tool plugin
         'svls',
         -- linter
         'shellcheck',
@@ -607,7 +607,7 @@ require('lazy').setup({
         'vale', -- latex
         'luacheck',
         'markdownlint',
-        'snyk',
+        -- 'snyk', --rust
         'pylint',
         -- formatter
         'beautysh',
