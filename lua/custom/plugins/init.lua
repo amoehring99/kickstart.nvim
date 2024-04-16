@@ -3,6 +3,8 @@
 --
 -- See the kickstart.nvim README for more information
 
+vim.g.python3_host_prog = '~/.virtualenvs/nvim/bin/python3.11'
+
 vim.keymap.set('i', 'jk', '<esc>')
 
 -- neo-tree keybindings
