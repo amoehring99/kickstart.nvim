@@ -547,6 +547,8 @@ require('lazy').setup({
         jdtls = {},
         texlab = {},
         svls = {},
+        hdl_checker = {},
+
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -611,7 +613,7 @@ require('lazy').setup({
         'pylint',
         -- formatter
         'beautysh',
-        'clang-format',
+        --'clang-format',
         'gersemi', -- cmake
         'fourmolu',
         'htmlbeautifier',
@@ -622,6 +624,7 @@ require('lazy').setup({
         'rustfmt',
         'isort',
         'black',
+        'hdl-checker',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -637,6 +640,24 @@ require('lazy').setup({
           end,
         },
       }
+
+      -- Only define once
+      if not require('lspconfig.configs').hdl_checker then
+        require('lspconfig.configs').hdl_checker = {
+          default_config = {
+            cmd = { 'hdl_checker', '--lsp' },
+            filetypes = { 'vhdl', 'verilog', 'systemverilog' },
+            root_dir = function(fname)
+              -- will look for the .hdl_checker.config file in parent directory, a
+              -- .git directory, or else use the current directory, in that order.
+              local util = require('lspconfig').util
+              return util.root_pattern '.hdl_checker.config'(fname) or util.find_git_ancestor(fname) or util.path.dirname(fname)
+            end,
+            settings = {},
+          },
+        }
+      end
+      require('lspconfig').hdl_checker.setup {}
     end,
   },
 
@@ -870,6 +891,7 @@ require('lazy').setup({
         'python',
         'rust',
         'verilog',
+        --'vhdl',
         'vim',
         'vimdoc',
       },
