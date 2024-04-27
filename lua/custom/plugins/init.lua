@@ -5,11 +5,31 @@
 
 vim.g.python3_host_prog = '~/.virtualenvs/nvim/bin/python3.12'
 
+-- use 4 spaces instead of tabs
+vim.bo.tabstop = 4
+vim.bo.shiftwidth = 4
+vim.bo.expandtab = true
+vim.bo.softtabstop = 4
+
 vim.keymap.set('i', 'jk', '<esc>')
 
 -- neo-tree keybindings
 
 vim.keymap.set('n', '<tab>', '<Cmd>Neotree toggle filesystem reveal left<CR>')
 vim.wo.relativenumber = true
+
+--autocommands
+--run linter for vhdl (vsg) when saving a .vhd file
+local autocmd_group = vim.api.nvim_create_augroup('Custom auto-commands', { clear = true })
+
+vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+  pattern = { '*.vhd' },
+  desc = 'Auto-format VHDL files after saving',
+  callback = function()
+    local file_name = vim.api.nvim_buf_get_name(0) -- Get file name of file in current buffer
+    vim.cmd(':!vsg --fix -f ' .. file_name)
+  end,
+  group = autocmd_group,
+})
 
 return {}
