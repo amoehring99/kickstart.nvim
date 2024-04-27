@@ -623,6 +623,7 @@ require('lazy').setup({
         'isort',
         'black',
         'hdl-checker',
+        'rust_hdl',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -639,12 +640,18 @@ require('lazy').setup({
         },
       }
 
+      lspconfig = require 'lspconfig'
+      lspconfig['vhdl_ls'].setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+      }
+
       -- Only define once
       if not require('lspconfig.configs').hdl_checker then
         require('lspconfig.configs').hdl_checker = {
           default_config = {
             cmd = { 'hdl_checker', '--lsp' },
-            filetypes = { 'vhdl', 'verilog', 'systemverilog' },
+            filetypes = { 'verilog', 'systemverilog' }, -- add vhdl as soon as it works agian
             root_dir = function(fname)
               -- will look for the .hdl_checker.config file in parent directory, a
               -- .git directory, or else use the current directory, in that order.
