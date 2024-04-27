@@ -3,7 +3,7 @@
 --
 -- See the kickstart.nvim README for more information
 
-vim.g.python3_host_prog = '~/.virtualenvs/nvim/bin/python3.11'
+vim.g.python3_host_prog = '~/.virtualenvs/nvim/bin/python3.12'
 
 vim.keymap.set('i', 'jk', '<esc>')
 
