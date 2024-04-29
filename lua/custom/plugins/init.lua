@@ -16,11 +16,15 @@ vim.keymap.set('i', 'jk', '<esc>')
 -- neo-tree keybindings
 
 vim.keymap.set('n', '<tab>', '<Cmd>Neotree toggle filesystem reveal left<CR>')
-vim.wo.relativenumber = true
 
 --autocommands
 --run linter for vhdl (vsg) when saving a .vhd file
 local autocmd_group = vim.api.nvim_create_augroup('Custom auto-commands', { clear = true })
+
+-- Define keybinding for entering visual mode because it doesnt bind to v by default for some reason
+local visual_mode_key = 'v'
+-- Map the custom keybinding to enter visual mode
+vim.api.nvim_set_keymap('n', visual_mode_key, ':normal! v<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
   pattern = { '*.vhd' },
