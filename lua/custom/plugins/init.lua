@@ -17,15 +17,15 @@ vim.keymap.set('i', 'jk', '<esc>')
 
 vim.keymap.set('n', '<tab>', '<Cmd>Neotree toggle filesystem reveal left<CR>')
 
+-- -- Define keybinding for entering visual mode because it doesnt bind to v by default for some reason
+-- local visual_mode_key = 'v'
+-- -- Map the custom keybinding to enter visual mode
+-- vim.api.nvim_set_keymap('n', visual_mode_key, ':normal! v<CR>', { noremap = true, silent = true })
+
 --autocommands
---run linter for vhdl (vsg) when saving a .vhd file
 local autocmd_group = vim.api.nvim_create_augroup('Custom auto-commands', { clear = true })
 
--- Define keybinding for entering visual mode because it doesnt bind to v by default for some reason
-local visual_mode_key = 'v'
--- Map the custom keybinding to enter visual mode
-vim.api.nvim_set_keymap('n', visual_mode_key, ':normal! v<CR>', { noremap = true, silent = true })
-
+--run linter for vhdl (vsg) when saving a .vhd file
 vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
   pattern = { '*.vhd' },
   desc = 'Auto-format VHDL files after saving',
@@ -35,5 +35,8 @@ vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
   end,
   group = autocmd_group,
 })
+
+-- Enable tabs for Makefiles
+vim.cmd 'autocmd FileType make setlocal noexpandtab'
 
 return {}
