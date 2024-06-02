@@ -17,11 +17,6 @@ vim.keymap.set('i', 'jk', '<esc>')
 
 vim.keymap.set('n', '<tab>', '<Cmd>Neotree toggle filesystem reveal left<CR>')
 
--- -- Define keybinding for entering visual mode because it doesnt bind to v by default for some reason
--- local visual_mode_key = 'v'
--- -- Map the custom keybinding to enter visual mode
--- vim.api.nvim_set_keymap('n', visual_mode_key, ':normal! v<CR>', { noremap = true, silent = true })
-
 --autocommands
 local autocmd_group = vim.api.nvim_create_augroup('Custom auto-commands', { clear = true })
 
