@@ -722,6 +722,27 @@ require('lazy').setup({
         capabilities = capabilities,
       }
 
+      -- ltex: languagetool settings
+      require('lspconfig').ltex.setup {
+        on_attach = function()
+          require('ltex_extra').setup {
+            -- This is where your dictionary will be stored! Replace this path with
+            -- whatever you want!
+            path = vim.fn.expand '~' .. '/.config/nvim/ltex',
+          }
+          -- ...
+        end,
+        settings = {
+          ltex = {
+            additionalRules = {
+              enablePickyRules = true,
+            },
+          },
+        },
+        filetypes = { 'markdown', 'text', 'tex', 'gitcommit' },
+        flags = { debounce_text_changes = 300 },
+      }
+
       ---- Only define once
       --if not require('lspconfig.configs').hdl_checker then
       --  require('lspconfig.configs').hdl_checker = {
