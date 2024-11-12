@@ -1,0 +1,9 @@
+{"rule":"UNIT_SPACE","sentence":"^\\QIt features a \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q 4B 4GB to connect to via the network.\\E$"}
+{"rule":"EN_A_VS_AN","sentence":"^\\QFor data transmission, the sensor modules feature an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q interface.\\E$"}
+{"rule":"ELLIPSIS","sentence":"^\\QWeeks 18 0,1,...,16 1\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qngerman.\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\QZeitplan.\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\QSchedule.\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\QVorteile.\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\QAdvantages.\\E$"}
+{"rule":"EG_NO_COMMA","sentence":"^\\QPopular sensor technologies e.g. \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q sensors and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q emit a light signal.\\E$"}
