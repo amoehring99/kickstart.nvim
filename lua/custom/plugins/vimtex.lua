@@ -6,6 +6,8 @@ return {
       vim.g.vimtex_view_method = 'sioyek'
       vim.g.vimtex_callback_prograph = 'wsl nvim'
       vim.g.maplocalleader = ','
+      -- open quickfix window only if there are errors
+      vim.g.vimtex_quickfix_open_on_warning = 0
 
       -- vimtex fold
       -- From: https://github.com/lervag/vimtex/blob/master/doc/vimtex.txt#L4671-L4713
