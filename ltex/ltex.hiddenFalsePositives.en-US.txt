@@ -7,3 +7,14 @@
 {"rule":"SENTENCE_WHITESPACE","sentence":"^\\QVorteile.\\E$"}
 {"rule":"SENTENCE_WHITESPACE","sentence":"^\\QAdvantages.\\E$"}
 {"rule":"EG_NO_COMMA","sentence":"^\\QPopular sensor technologies e.g. \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q sensors and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q emit a light signal.\\E$"}
+{"rule":"CLOSE_SCRUTINY","sentence":"^\\QIn contrast to optical sensors, the combination of both, allow close proximity.\\E$"}
+{"rule":"CLOSE_SCRUTINY","sentence":"^\\QClose proximity refers to the coverage of the close range up to the contact point.\\E$"}
+{"rule":"CLOSE_SCRUTINY","sentence":"^\\QClose proximity refers to the coverage of close range up to the contact point detection.\\E$"}
+{"rule":"CLOSE_SCRUTINY","sentence":"^\\QClose proximity refers to the coverage of close range up to contact point detection.\\E$"}
+{"rule":"CLOSE_SCRUTINY","sentence":"^\\QThis thesis discusses the addition of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q to optical sensing to enable close proximity and avoid named avoid the problem.\\E$"}
+{"rule":"CLOSE_SCRUTINY","sentence":"^\\QThis thesis discusses the addition of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q to optical sensing to enable close proximity and avoid named problem.\\E$"}
+{"rule":"CLOSE_SCRUTINY","sentence":"^\\QIn case collision avoidance fails, collision detection is enabled using close proximity and tactile sensing ability of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"CLOSE_SCRUTINY","sentence":"^\\QIn addition, close proximity is made possible.\\E$"}
+{"rule":"EN_A_VS_AN","sentence":"^\\QThis chapter describes the hardware setup utilized to research mapping and navigation of an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q using Dummies.\\E$"}
+{"rule":"EN_A_VS_AN","sentence":"^\\QTherefore, only VIN, Ground, \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q are directly connected to an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"EN_A_VS_AN","sentence":"^\\QIn this test setup, only VIN, Ground, \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q are directly connected to an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
