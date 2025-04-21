@@ -8,7 +8,7 @@ return {
       vim.g.maplocalleader = ','
       -- open quickfix window only if there are errors
       vim.g.vimtex_quickfix_open_on_warning = 0
-
+      vim.g.vimtex_view_general_viewer = 'sioyek'
       -- vimtex fold
       -- From: https://github.com/lervag/vimtex/blob/master/doc/vimtex.txt#L4671-L4713
       -- vim.o.foldmethod = 'expr'
