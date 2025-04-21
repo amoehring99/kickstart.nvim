@@ -3,19 +3,19 @@
 --
 -- See the kickstart.nvim README for more information
 
-vim.g.python3_host_prog = '~/.virtualenvs/nvim/bin/python3.12'
+vim.g.python3_host_prog = vim.fn.expand '~/.virtualenvs/nvim/bin/python3.12'
 
 -- use 4 spaces instead of tabs
-vim.bo.tabstop = 4
-vim.bo.shiftwidth = 4
-vim.bo.expandtab = true
-vim.bo.softtabstop = 4
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.softtabstop = 4
 
 vim.keymap.set('i', 'jk', '<esc>')
 
 -- neo-tree keybindings
 
-vim.keymap.set('n', '<tab>', '<Cmd>Neotree toggle filesystem reveal left<CR>')
+vim.keymap.set('n', '<leader><tab>', '<Cmd>Neotree toggle filesystem reveal left<CR>')
 
 --autocommands
 local autocmd_group = vim.api.nvim_create_augroup('Custom auto-commands', { clear = true })
