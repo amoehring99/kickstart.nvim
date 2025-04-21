@@ -18,3 +18,13 @@
 {"rule":"EN_A_VS_AN","sentence":"^\\QThis chapter describes the hardware setup utilized to research mapping and navigation of an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q using Dummies.\\E$"}
 {"rule":"EN_A_VS_AN","sentence":"^\\QTherefore, only VIN, Ground, \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q are directly connected to an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
 {"rule":"EN_A_VS_AN","sentence":"^\\QIn this test setup, only VIN, Ground, \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q are directly connected to an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"CLOSE_SCRUTINY","sentence":"^\\QIn addition, close proximity sensing is made possible.\\E$"}
+{"rule":"CLOSE_SCRUTINY","sentence":"^\\QTheir approach focuses on perception in close proximity situations.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qshows that the magnetic field, in return, generates an alternating current in the electrode.\\E$"}
+{"rule":"POSSESSIVE_APOSTROPHE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q provides a software the ultra light drivers library \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QThe protocol is designed to be adaptable with low overhead, using a header with fixed 16-bit startsequence, 16-bit crc16, variable bit datasize values, and a variable length payload.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QIt requires startsequence to be sent first, and must include a crc16 and datasize field in the header.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QIn this work, the data layout of the header includes a 16-bit startsequence, 8-bit id, 16-bit crc16, 8-bit datasize, and a variable length payload field, in this order for both, \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q data.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QIt exposes a single readpacket call that returns a shared pointer to a packet struct instance.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Qport, baudrate and startsequence values need to be passed to the constructor.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qport, baudrate and startsequence values need to be passed to the constructor.\\E$"}
