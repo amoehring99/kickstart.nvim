@@ -11,3 +11,6 @@ copyable
 endianess
 UART
 diffractive
+photocharges
+multizone
+vizualized
