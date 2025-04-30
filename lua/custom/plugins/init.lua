@@ -15,7 +15,7 @@ vim.keymap.set('i', 'jk', '<esc>')
 
 -- neo-tree keybindings
 
-vim.keymap.set('n', '<leader><tab>', '<Cmd>Neotree toggle filesystem reveal left<CR>')
+vim.keymap.set('n', '<tab>', '<Cmd>Neotree toggle filesystem reveal left<CR>')
 
 --autocommands
 local autocmd_group = vim.api.nvim_create_augroup('Custom auto-commands', { clear = true })
