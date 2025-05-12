@@ -14,40 +14,63 @@ vim.opt.softtabstop = 4
 vim.keymap.set('i', 'jk', '<esc>')
 
 -- neo-tree keybindings
+-- vim.keymap.set('n', '<tab>', '<Cmd>Neotree toggle filesystem reveal left<CR>')
+vim.keymap.set('n', '<tab>', '<Cmd>Ranger<CR>')
 
-vim.keymap.set('n', '<tab>', '<Cmd>Neotree toggle filesystem reveal left<CR>')
-
---autocommands
-local autocmd_group = vim.api.nvim_create_augroup('Custom auto-commands', { clear = true })
-
---run linter for vhdl (vsg) when saving a .vhd file
-vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
-  pattern = { '*.vhd' },
-  desc = 'Auto-format VHDL files after saving',
-  callback = function()
-    local file_name = vim.api.nvim_buf_get_name(0) -- Get file name of file in current buffer
-    vim.cmd(':!vsg --fix -f ' .. file_name)
-  end,
-  group = autocmd_group,
-})
-
--- Global config: underline always, virtual_text off by default
 vim.diagnostic.config {
-  virtual_text = false, -- don't show virtual text by default
-  underline = true, -- always underline diagnostics
-  signs = true, -- enable diagnostic signs
-  update_in_insert = false,
-  severity_sort = true, -- optional: sort diagnostics by severity
-}
--- Configure diagnostic signs
-vim.diagnostic.config {
+  virtual_text = false,
+  underline = true,
   signs = {
-    Error = { text = '✖', texthl = 'DiagnosticSignError' },
-    Warn = { text = '!', texthl = 'DiagnosticSignWarn' },
-    Info = { text = 'i', texthl = 'DiagnosticSignInfo' },
-    Hint = { text = '➤', texthl = 'DiagnosticSignHint' },
+    text = {
+      [vim.diagnostic.severity.ERROR] = '✖',
+      [vim.diagnostic.severity.WARN] = '!',
+      [vim.diagnostic.severity.INFO] = 'i',
+      [vim.diagnostic.severity.HINT] = '➤',
+    },
   },
+  update_in_insert = false,
+  severity_sort = true,
 }
+
+local ns = vim.api.nvim_create_namespace 'line_diagnostics'
+
+vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorMoved' }, {
+  callback = function()
+    local bufnr = 0
+    local line = vim.fn.line '.' - 1
+    vim.api.nvim_buf_clear_namespace(bufnr, ns, 0, -1)
+
+    local diags = vim.diagnostic.get(bufnr, { lnum = line })
+    if #diags == 0 then
+      return
+    end
+
+    local chunks = {}
+    for _, d in ipairs(diags) do
+      local sym = ({
+        [vim.diagnostic.severity.ERROR] = '✖',
+        [vim.diagnostic.severity.WARN] = '!',
+        [vim.diagnostic.severity.INFO] = 'i',
+        [vim.diagnostic.severity.HINT] = '➤',
+      })[d.severity] or ''
+
+      local hl = ({
+        [vim.diagnostic.severity.ERROR] = 'DiagnosticVirtualTextError',
+        [vim.diagnostic.severity.WARN] = 'DiagnosticVirtualTextWarn',
+        [vim.diagnostic.severity.INFO] = 'DiagnosticVirtualTextInfo',
+        [vim.diagnostic.severity.HINT] = 'DiagnosticVirtualTextHint',
+      })[d.severity] or 'DiagnosticVirtualTextInfo'
+
+      table.insert(chunks, { sym .. ' ' .. d.message, hl })
+    end
+
+    vim.api.nvim_buf_set_extmark(bufnr, ns, line, 0, {
+      virt_text = chunks,
+      virt_text_pos = 'eol',
+      hl_mode = 'combine',
+    })
+  end,
+})
 
 -- Enable tabs for Makefiles
 vim.cmd 'autocmd FileType make setlocal noexpandtab'
